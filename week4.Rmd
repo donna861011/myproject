@@ -21,12 +21,18 @@ x<-1+1 #assignment
 print(x)
 ```
 
+ sex | nane | address
+ --- | --- | ---
+ 1  | chung 3  | kao
+
+
+1. click to **add**
+1. commit+**message**
+1. push
+
+
 ```{y}
 y<''1234''
 print(y)
 
 一般城市語言，'='assignment
-
-1. click to **add**
-1. commit+**message**
-1. push
