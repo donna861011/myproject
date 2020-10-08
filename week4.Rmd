@@ -1,0 +1,32 @@
+---
+title: "week4"
+output:
+  word_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+```{r}
+
+x<-1+1 #assignment
+
+```
+
+```{r}
+print(x)
+```
+
+```{y}
+y<''1234''
+print(y)
+
+一般城市語言，'='assignment
+
+1. click to **add**
+1. commit+**message**
+1. push
