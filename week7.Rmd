@@ -1,0 +1,66 @@
+---
+title: "week7"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+```{r}
+N<-100
+metsample<-rnorm(N,5,2)
+
+bum<-numeric(1000)
+for(i in 1:1000){
+  rndno<-as.integer(runif(N)*N)+1
+  smp<-metsample[rndno]
+  bum[i]<-mean(smp)
+  
+}
+
+p<-density(bum)
+plot(p)
+qq<-quantile(bum)
+rug(qq,col="red")
+qq
+```
+```{r}
+N<-400
+metsample<-rnorm(N,5,2)
+
+bum<-numeric(1000)
+for(i in 1:1000){
+  rndno<-as.integer(runif(N)*N)+1
+  smp<-metsample[rndno]
+  bum[i]<-mean(smp)
+  
+}
+
+p<-density(bum)
+plot(p)
+qq<-quantile(bum)
+rug(qq,col="red")
+qq
+```
+```{r}
+N<-900
+metsample<-rnorm(N,5,2)
+
+bum<-numeric(1000)
+for(i in 1:1000){
+  rndno<-as.integer(runif(N)*N)+1
+  smp<-metsample[rndno]
+  bum[i]<-mean(smp)
+  
+}
+
+p<-density(bum)
+plot(p)
+qq<-quantile(bum)
+rug(qq,col="red")
+qq
+```
+
