@@ -1,0 +1,70 @@
+---
+title: "week9"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+```{r}
+uu<-seq(0,1,by=.1)
+zscore<-seq(-3,3,0.1)
+pvalues<-pnorm(zscore)
+plot(pvalues,type="l",xaxt="n")
+
+
+
+oo<-rep(F,length(zscore))
+oo[3]<-T
+axis(1,at=which(oo),label="this")
+```
+```{r}
+uu<-seq(0,1,length=100)
+uu<-uu[c(-1,-100)]
+z_scores <-qnorm(uu)
+pvalues <- pnorm(z_scores)
+plot(z_scores,pvalues,type="l",
+     xlab="z-scores",
+     ylab="Probability",
+     xaxt="n",
+     main="CDF")
+axis(1, at=which(round(pvalues,2)== 0.2 ),
+     labels=round(qnorm(0.2), 2))
+```
+標準差佔的信賴區間，百分比
+```{r}
+right<-pnorm(1)
+left<-pnorm(-1)
+right-left
+```
+
+```{r}
+right<-pnorm(2)
+left<-pnorm(-2)
+right-left
+```
+```{r}
+myfilter<-function(x){
+        le2<- x[x<=0.2]
+        xx<-le2[le2>=-0.2]
+        return(xx)
+}
+```
+
+
+```{r}
+x<-rpois (30,2)
+
+
+getevent<-function(v){
+        return(v[v%%2==0] )
+}
+x
+getevent(x)
+```
+
+
+
