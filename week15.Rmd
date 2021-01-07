@@ -1,0 +1,62 @@
+---
+title: "Untitled"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+source("isDsExists.R")
+
+install.packages("AER")
+install.packages("DT")
+
+data("Journals", package = "AER")
+View(Journals)
+
+journals <- Journals[, c("subs", "price")]
+journals$citeprice<-Journals$price/Journals$citations
+```{r}
+library("AER")
+data("Journals", package = "AER")
+journals <- Journals[, c("subs", "price")]
+journals$citeprice<-Journals$price/Journals$citations
+lm(journals$sub~Journals$citations)
+lm(subs~citeprice,data=journals)
+```
+```{r}
+plot(log(subs) ~ log(citeprice), data = journals)
+```
+```{r}
+mm <- lm(log(subs)~log(citeprice), data=journals)
+plot(mm)
+
+```
+```{r}
+plot(log(subs) ~ log(citeprice), data = journals)
+jour_lm <- lm(log(subs) ~ log(citeprice), data = journals)
+ablines(jour_lm)
+```
+
+```{r}
+summary(jour_lm)
+```
+
+```{r}
+Journals<-read.csv("Journals.csv")
+journals<- Journals[, c("subs", "price")]
+journals$citeprice<-Journals$price/Journals$citations
+journals$ls$lsubs<-log(journals$subs)
+journals$lciteprice<-log(journals$citeprice)
+
+
+plot(lsubs ~ lciteprice, data = journals)
+jour_lm <- lm(subs ~ lciteprice, data = journals)
+abline(jour_lm)
+anova(jour_lm)
+linearHypothesis(jour_lm, "lciteprice = -0.5")
+```
+

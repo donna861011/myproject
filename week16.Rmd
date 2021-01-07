@@ -1,0 +1,28 @@
+---
+title: "Untitled"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+install.packages("UsingR")
+library(UsingR)
+data(ewr)
+EDA<- function(x)
+{
+  par(mfrow=c(2,2))
+  hist(x)
+  density(x)
+  dotchart(x)
+  boxplot(x,horizontal=T)
+  qqnorm9(x);qqline(x)
+  par(mfrow=c(1,1))
+}
+```{r}
+rr
+```
+
